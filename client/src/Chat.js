@@ -1,9 +1,13 @@
 import React, { useEffect, useState } from "react";
 import ScrollToBottom from "react-scroll-to-bottom";
+import { RLN } from "rlnjs";
+import { addNewUser } from "./store/users";
 
 function Chat({ socket, username, room }) {
   const [currentMessage, setCurrentMessage] = useState("");
   const [messageList, setMessageList] = useState([]);
+  
+  addNewUser();
 
   const sendMessage = async () => {
     if (currentMessage !== "") {
